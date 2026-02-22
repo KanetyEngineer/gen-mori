@@ -1,0 +1,42 @@
+@use "../const" as cn;
+
+.sub-hero {
+  padding: 200px 80px;
+}
+.sub-hero-title {
+  color: cn.$color-main;
+  text-align: center;
+  > span {
+    display: block;
+    &:nth-child(1){
+      font-size: 20px;
+    }
+    &:nth-child(2){
+      font-size: 80px;
+      font-weight: bold;
+    }
+    &:nth-child(3){
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: cn.$bp-sm) {
+  .sub-hero {
+    padding: 100px 40px;
+  }
+  .sub-hero-title {
+    > span {
+      &:nth-child(1){
+        font-size: 18px;
+      }
+      &:nth-child(2){
+        font-size: 32px;
+        margin: 5px 0;
+      }
+      &:nth-child(3){
+        font-size: 12px;
+      }
+    }
+  }
+}

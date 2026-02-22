@@ -1,0 +1,22 @@
+<div class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-headline js-scroll-animation">
+      <span class="hero-headline-text">
+        <span>元気モリモリ</span>活動中</span
+      ><br />
+      <span class="hero-headline-text">
+        元気モリモリプロダクション
+      </span>
+    </h1>
+  </div>
+  <div class="hero-images">
+    <ul class="hero-images-list">
+      <% for(let index = 0; index < 5; index++){ %>
+      <li class="hero-images-item">
+        <img src="https://placehold.jp/438x292.png" alt="" />
+      </li>
+      <% } %>
+    </ul>
+  </div>
+  <%- include("../modules/components/_animation.html") %>
+</div>

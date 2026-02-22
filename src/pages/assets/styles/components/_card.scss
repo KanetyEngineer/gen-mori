@@ -1,0 +1,61 @@
+@use "../const" as cn;
+
+.card {
+  color: cn.$color-main;
+  background: #fff;
+  box-shadow: 0px 0px 44px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 50px 16px 32px;
+  text-align: center;
+  height: 100%;
+}
+.card-headline {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: .15em;
+  margin-bottom: 22px;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    width: 8px;
+    height: 8px;
+    background: cn.$color-sub;
+    border-radius: 50%;
+  }
+}
+.card-img {
+  width: 100%;
+  aspect-ratio: 352 / 240;
+  background: cn.$color-img-bg;
+  border-radius: 8px;
+  overflow: hidden;
+  > img {
+    width: 100%;
+    height: auto;
+  }
+}
+.card-disc {
+  margin: 24px 0 0;
+  text-align: left; 
+  letter-spacing: .04em;
+}
+
+@media screen and (max-width: cn.$bp-sm){
+  .card {
+    padding: 20px;
+  }
+  .card-headline {
+    font-size: 18px;
+    margin-bottom: 16px;
+    &::before {
+      display: none;
+    }
+  }
+  .card-disc {
+    margin-top: 18px;
+  }
+}

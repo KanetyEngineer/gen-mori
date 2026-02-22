@@ -1,0 +1,33 @@
+@use "../const" as cn;
+
+.contact {
+  margin: 0 120px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -145px;
+}
+.contact-inner {
+  text-align: center;
+  background: #fff;
+  padding: 52px 0;
+  border-radius: 8px;
+  > h1 {
+    color: cn.$color-main;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 37px;
+  }
+}
+
+@media screen and (max-width: cn.$bp-sm){
+  .contact {
+    margin: 0 20px;
+  }
+  .contact-inner {
+    padding: 20px;
+    > h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  }
+}

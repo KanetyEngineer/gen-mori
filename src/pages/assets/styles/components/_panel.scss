@@ -1,0 +1,77 @@
+@use "../const" as cn;
+
+.panel {
+  display: block;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  text-align: center;
+  padding: 85px 20px 60px;
+  transition: background-color ease-out .2s, border-color ease-out .2s;
+
+  &:hover {
+    border-color: cn.$color-sub;
+    background: cn.$color-sub;
+
+    .panel-headline {
+      padding-right: 70px;
+      > span {
+        background-color: rgba(#fff, .2);
+        transform: translateY(-50%) scale(1.1);
+        &::after {
+          background-color: #fff;
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
+    }
+  }
+}
+// .panel-inner {}
+.panel-headline {
+  line-height: 1;
+  font-size: 48px;
+  margin-bottom: 45px;
+  position: relative;
+  display: inline-block;
+  padding-right: 50px;
+  transition: padding ease-out .2s;
+
+  > span {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(cn.$color-sub, .2);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 0px solid #fff;
+    transition: transform ease-out .2s, background-color ease-out .2s;
+    margin-top: 4px;
+    &::after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: cn.$color-sub;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      transition: all ease-out .2s;
+    }
+  }
+}
+// .panel-disc {}
+
+@media screen and (max-width: cn.$bp-sm){
+  .panel {
+    padding: 20px;
+  }
+  .panel-headline {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+}

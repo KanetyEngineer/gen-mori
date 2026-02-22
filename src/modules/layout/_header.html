@@ -1,0 +1,39 @@
+<header class="header">
+  <button type="button" class="trigger" id="js-nav-trigger">
+    <span></span>
+  </button>
+
+  <div class="header-inner">
+    <div class="header-flex">
+      <a href="/" class="header-logo">
+        <img
+          src="/images/logo.png"
+          width="99"
+          height="62"
+          alt="元気モリモリプロダクション"
+        />
+      </a>
+
+      <nav class="nav" id="js-nav">
+        <div class="nav-container">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="/" class="nav-link">HOME</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/about" class="nav-link">COURSES</a>
+            </li>
+            <li class="nav-item">
+              <a href="/blogs" class="nav-link">BLOGS</a>
+            </li>
+          </ul>
+          <div class="nav-contact">
+            <%- include('../modules/components/_link.html', { modifier:
+            'link-nav', href: '/contact', text: 'お問い合わせ', }) %>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

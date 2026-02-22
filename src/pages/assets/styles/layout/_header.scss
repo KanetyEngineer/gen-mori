@@ -1,0 +1,41 @@
+@use "../const" as cn;
+
+.header {
+  width: 100%;
+  position: absolute;
+  z-index: 19;
+  top: 60px;
+  left: 0;
+}
+.header-inner {
+  margin: 0 80px;
+}
+.header-flex {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-logo {
+  > img {}
+}
+
+@media screen and (max-width: cn.$bp-sm){
+  .header {
+    top: 20px;
+  }
+  .header-flex {
+    padding: 0;
+  }
+  .header-inner {
+    margin: 0 20px;
+  }
+  .header-logo {
+    width: 70px;
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

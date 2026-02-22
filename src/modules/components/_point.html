@@ -1,0 +1,12 @@
+<section class="point">
+  <%- include("../modules/components/_headline.html", { modifier:
+  "headline-color-main headline-center", main: "POINT", sub: "3つの特徴" }) %>
+
+  <ul class="point-list">
+    <% for(let index = 0; index < 3; index++){ %>
+    <li class="point-item">
+      <%- include("../modules/components/_card.html") %>
+    </li>
+    <% } %>
+  </ul>
+</section>

@@ -1,0 +1,75 @@
+@use "../const" as cn;
+
+.link {
+  font-weight: bold;
+  display: inline-block;
+  padding: 28px 86px;
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background: cn.$color-sub;
+  transition: box-shadow 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  > span {
+    position: relative;
+    z-index: 2;
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: cn.$color-sub-dark;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  &:hover {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+    &::after {
+      transform-origin: 0% 50%;
+      transform: scale(1);
+    }
+  }
+
+  // modifier 
+  &.link-nav {
+    padding: 16px 32px;
+    border-radius: 74px;
+    font-size: 14px;
+  }
+  &.link-full {
+    width: 100%;
+  }
+  &.link-contact {
+    background: cn.$color-accent;
+    padding: 28px 158px;
+    &::after {
+      background: cn.$color-accent-dark;
+    }
+  }
+}
+
+@media screen and (max-width: cn.$bp-sm){
+  .link {
+    padding: 14px 43px;
+    font-size: 14px;
+
+    // Modifier class
+    &.link-nav {
+      padding: 18px 50px;
+    }
+    &.link-contact {
+      padding: 18px 59px;
+    }
+  }
+}

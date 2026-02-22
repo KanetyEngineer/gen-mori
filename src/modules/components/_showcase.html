@@ -1,0 +1,22 @@
+<section class="showcase">
+  <div class="showcase-header">
+    <div class="showcase-header-inner">
+      <h1 class="showcase-header-headline">・ ライバー</h1>
+      <div class="showcase-header-link">
+        <%- include("../modules/components/_link.html", { modifier: "", href:
+        "", text: "MORE" }) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="showcase-contents">
+    <ul class="showcase-list">
+      <li class="showcase-item"></li>
+      <% for(let index = 0; index < 5; index++){ %>
+      <li class="showcase-item">
+        <%- include("../modules/components/_work.html") %>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</section>
