@@ -1,14 +1,14 @@
 export const mainData = {
   common: {
-    siteName: "SiiD Webサイト",
-    domain: "bug-fix.org",
+    siteName: "元気モリモリプロダクションHP",
+    domain: "gen-mori.com",
   },
   index: {
-    title: "オンラインのプログラミングスクール「SiiD」 - BugFix LLC",
-    disc: "オンラインのプログラミングスクール「SiiD」では、ゼミ形式でプログラミングやソフトウェア開発の手法をレクチャーします。カジュアルに始められるBasicコースと、ストイックに取り組むCareerコースがあります。",
+    title: "IRIAM VLiver事務所 - Genmori LLC",
+    disc: "IRIAM VLiver事務所 - Genmori LLCの公式ホームページです。IRIAMで活動するVLiverの情報や、イベント、グッズなどの最新情報をお届けします。",
   },
   privacyPolicy: {
-    title: "プライバシーポリシー | オンラインのプログラミングスクール「SiiD」",
+    title: "プライバシーポリシー | 元気モリモリプロダクションHP",
     disc: "プライバシーポリシーについて記載したページです。",
   },
 };
