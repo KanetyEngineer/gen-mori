@@ -1,3 +1,4 @@
+# ViteプロジェクトをGitHub Pagesにデプロイするためのワークフロー
 name: Deploy Vite site to Pages
 
 on:
@@ -15,31 +16,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node
+      # 1. Node.jsの環境をセットアップ
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
+      # 2. パッケージのインストール
       - name: Install dependencies
         run: npm install
 
+      # 3. Viteのビルドを実行
       - name: Build
         run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # 4. ビルド出力先（distフォルダ）を指定してアップロード
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Viteのビルド出力先である dist フォルダを指定
           path: './dist'
 
       - name: Deploy to GitHub Pages
