@@ -30,3 +30,9 @@ export default defineConfig({
     }),
   ],
 });
+// vite.config.js
+export default defineConfig({
+  base: '/gen-mori/', // あなたのリポジトリ名（gen-mori）を / で囲んで記述
+  root: root,
+  // ...他の設定
+});
