@@ -1,6 +1,6 @@
 export const mainData = {
   common: {
-    siteName: "元気モリモリプロダクションHP",
+    siteName: "元気もりもりプロダクションHP",
     domain: "gen-mori.com",
   },
   index: {
@@ -8,7 +8,7 @@ export const mainData = {
     disc: "IRIAM VLiver事務所 - Genmori LLCの公式ホームページです。IRIAMで活動するVLiverの情報や、イベント、グッズなどの最新情報をお届けします。",
   },
   privacyPolicy: {
-    title: "プライバシーポリシー | 元気モリモリプロダクションHP",
+    title: "プライバシーポリシー | 元気もりもりプロダクションHP",
     disc: "プライバシーポリシーについて記載したページです。",
   },
 };
