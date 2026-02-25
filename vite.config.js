@@ -14,7 +14,7 @@ const inputFiles = globSync(`${root}/**/*.html`).reduce((entries, file) => {
 
 // ここから下が設定ブロック（1つだけにまとめる）
 export default defineConfig({
-  base: '/genmori', // ← これがGitHub Pages用のURL設定
+  base: '/genmori/', // ← これがGitHub Pages用のURL設定
   root: root,
   publicDir: '../../public',
   build: {
