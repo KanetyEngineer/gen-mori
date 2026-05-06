@@ -164,7 +164,13 @@
 .gacha-result-message {
   font-size: 16px;
   font-weight: bold;
-  margin: 0 0 28px;
+  margin: 0 0 12px;
+}
+
+.gacha-result-note {
+  font-size: 12px;
+  color: cn.$color-address;
+  margin: 0 0 24px;
 }
 
 .gacha-rates {

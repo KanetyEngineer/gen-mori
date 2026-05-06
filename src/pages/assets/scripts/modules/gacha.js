@@ -6,6 +6,8 @@ const VALID_IDS = [
   "VLIVER2026",
 ];
 
+const STORAGE_KEY = "gacha_used_ids";
+
 const RARITIES = [
   { rank: "S", probability: 3, message: "大当たり！超レア排出！" },
   { rank: "A", probability: 10, message: "やったね！レアが出ました" },
@@ -24,6 +26,29 @@ const drawRank = () => {
   return RARITIES[RARITIES.length - 1];
 };
 
+const getUsedIds = () => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+};
+
+const markIdUsed = (id) => {
+  const used = getUsedIds();
+  if (!used.includes(id)) {
+    used.push(id);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(used));
+    } catch {
+      // localStorage が使えない環境は黙ってスキップ
+    }
+  }
+};
+
 export const gacha = () => {
   const $form = document.querySelector("#js-gacha-form");
   if (!$form) return;
@@ -38,6 +63,9 @@ export const gacha = () => {
   const $resultMessage = document.querySelector("#js-gacha-result-message");
   const $againBtn = document.querySelector("#js-gacha-again");
 
+  let activeId = null;
+  let isRolling = false;
+
   const submitId = () => {
     const id = $idInput.value.trim().toUpperCase();
     if (!id) {
@@ -48,9 +76,24 @@ export const gacha = () => {
       $errorMsg.textContent = "そのIDは無効です";
       return;
     }
+    if (getUsedIds().includes(id)) {
+      $errorMsg.textContent = "このIDは既に使用されています";
+      return;
+    }
     $errorMsg.textContent = "";
+    activeId = id;
     $form.hidden = true;
     $rollSection.hidden = false;
+  };
+
+  const backToInput = () => {
+    activeId = null;
+    $idInput.value = "";
+    $errorMsg.textContent = "";
+    $resultSection.hidden = true;
+    $rollSection.hidden = true;
+    $form.hidden = false;
+    $idInput.focus();
   };
 
   $submitBtn.addEventListener("click", submitId);
@@ -62,6 +105,10 @@ export const gacha = () => {
   });
 
   $rollBtn.addEventListener("click", () => {
+    if (!activeId || isRolling) return;
+    isRolling = true;
+    // この時点でIDを使用済みとして記録（多重クリック・リロード対策）
+    markIdUsed(activeId);
     $rollBtn.disabled = true;
     $rollBtn.textContent = "回しています...";
 
@@ -70,16 +117,16 @@ export const gacha = () => {
       $resultRank.textContent = result.rank;
       $resultRank.dataset.rank = result.rank;
       $resultMessage.textContent = result.message;
+
+      activeId = null;
       $rollSection.hidden = true;
       $resultSection.hidden = false;
 
       $rollBtn.disabled = false;
       $rollBtn.textContent = "ガチャを回す";
+      isRolling = false;
     }, 1200);
   });
 
-  $againBtn.addEventListener("click", () => {
-    $resultSection.hidden = true;
-    $rollSection.hidden = false;
-  });
+  $againBtn.addEventListener("click", backToInput);
 };
