@@ -1,0 +1,59 @@
+<% const head = { title: gacha.title, disc: gacha.disc };%> <%-
+include('../modules/meta/_head.html', head) %> <%-
+include('../modules/layout/_header.html') %>
+
+<main>
+  <section class="gacha">
+    <div class="gacha-inner">
+      <h1 class="gacha-title">GACHA</h1>
+      <p class="gacha-lead">事前に入手したIDを入力してガチャを回そう</p>
+
+      <div class="gacha-card" id="js-gacha-form">
+        <label class="gacha-label" for="js-gacha-id-input">ID</label>
+        <input
+          type="text"
+          id="js-gacha-id-input"
+          class="gacha-input"
+          placeholder="入手したIDを入力"
+          autocomplete="off"
+        />
+        <button type="button" class="gacha-submit" id="js-gacha-submit">
+          ID を確定する
+        </button>
+        <p class="gacha-error" id="js-gacha-error" aria-live="polite"></p>
+      </div>
+
+      <div class="gacha-card" id="js-gacha-roll" hidden>
+        <p class="gacha-status">IDが認証されました</p>
+        <button type="button" class="gacha-button" id="js-gacha-button">
+          ガチャを回す
+        </button>
+      </div>
+
+      <div class="gacha-card" id="js-gacha-result" hidden>
+        <p class="gacha-result-text">RESULT</p>
+        <div class="gacha-result-rank" id="js-gacha-result-rank"></div>
+        <p class="gacha-result-message" id="js-gacha-result-message"></p>
+        <button type="button" class="gacha-again" id="js-gacha-again">
+          もう一度回す
+        </button>
+      </div>
+
+      <dl class="gacha-rates">
+        <dt>排出率</dt>
+        <dd>
+          <span data-rank="S">S</span> 3% /
+          <span data-rank="A">A</span> 10% /
+          <span data-rank="B">B</span> 20% /
+          <span data-rank="C">C</span> 30% /
+          <span data-rank="D">D</span> 37%
+        </dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<%- include('../modules/layout/_footer.html') %>
+
+<script type="module" src="/assets/scripts/gacha.js"></script>
+<%- include('../modules/meta/_foot.html') %>

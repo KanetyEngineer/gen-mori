@@ -7,7 +7,11 @@ import path from 'path';
 const root = 'src/pages/';
 
 const inputFiles = globSync(`${root}/**/*.html`).reduce((entries, file) => {
-  const fileNameWithoutExt = path.relative(root, file).replace(path.extname(file), '');
+  const fileNameWithoutExt = path
+    .relative(root, file)
+    .replace(path.extname(file), '')
+    .split(path.sep)
+    .join('/');
   entries[fileNameWithoutExt] = file;
   return entries;
 }, {});
