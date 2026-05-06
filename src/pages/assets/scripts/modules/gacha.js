@@ -1,10 +1,10 @@
-const VALID_IDS = [
-  "GENMORI",
-  "MORIMORI",
-  "DEMO2026",
-  "GACHA001",
-  "VLIVER2026",
-];
+// 有効なIDは .env の VITE_GACHA_IDS でカンマ区切り定義する。
+// 値はビルド時に import.meta.env から static replace されるため、
+// .env が無い・空のときは空配列となり、全てのIDが「無効」と判定される。
+const VALID_IDS = (import.meta.env.VITE_GACHA_IDS || "")
+  .split(",")
+  .map((id) => id.trim().toUpperCase())
+  .filter(Boolean);
 
 const STORAGE_KEY = "gacha_used_ids";
 

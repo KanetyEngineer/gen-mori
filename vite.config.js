@@ -21,6 +21,7 @@ export default defineConfig({
   base: '/gen-mori/', // GitHub Pages の公開URLが https://<user>.github.io/gen-mori/ のためサブパスを指定
   root: root,
   publicDir: '../../public',
+  envDir: '../../', // root を src/pages/ に変えているので、プロジェクトルートの .env を明示的に読みに行く
   build: {
     outDir: '../../dist',
     emptyOutDir: true,

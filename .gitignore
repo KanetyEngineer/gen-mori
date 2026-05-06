@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# 環境変数 (ガチャの有効ID等)
+.env
+.env.local
+.env.*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -37,8 +37,12 @@ jobs:
         run: npm install
 
       # 3. Viteのビルドを実行
+      #    ガチャの有効IDは Repository Secrets の VITE_GACHA_IDS から渡す
+      #    （ローカルの .env はリポジトリに含まれないため）
       - name: Build
         run: npm run build
+        env:
+          VITE_GACHA_IDS: ${{ secrets.VITE_GACHA_IDS }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
