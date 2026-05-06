@@ -2,6 +2,7 @@ export const mainData = {
   common: {
     siteName: "元気もりもりプロダクションHP",
     domain: "gen-mori.com",
+    base: "/gen-mori/",
   },
   index: {
     title: "IRIAM VLiver事務所 - Genmori LLC",
